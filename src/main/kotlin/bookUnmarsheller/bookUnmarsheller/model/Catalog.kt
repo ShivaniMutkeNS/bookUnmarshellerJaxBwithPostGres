@@ -8,7 +8,7 @@ data class Catalog(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany()
     @JoinColumn(name = "catalog_id")
     val books: List<Book> = emptyList()
 )
