@@ -1,10 +1,8 @@
 package bookUnmarsheller.bookUnmarsheller.entity
-
 import javax.persistence.*
-
 @Entity
-@Table(name = "book")
-data class BookEntity(
+@Table(name = "books")
+data class Book(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
@@ -29,5 +27,5 @@ data class BookEntity(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catalog_id")
-    var catalog: CatalogEntity? = null
+    var catalog: Catalog? = null
 )
