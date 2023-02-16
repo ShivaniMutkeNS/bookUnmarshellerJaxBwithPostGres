@@ -1,4 +1,4 @@
-package bookUnmarsheller.bookUnmarsheller
+package bookUnmarsheller.bookUnmarsheller.viewModel
 
 import bookUnmarsheller.bookUnmarsheller.model.Book
 import java.util.*
@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement
 
 @XmlRootElement(name = "catalog")
 @XmlAccessorType(XmlAccessType.FIELD)
-data class BookDataClass(
+data class BookDataClass(//Catagory
 
     var id: String ?=null,
 
@@ -50,7 +50,6 @@ data class BookDto(
             price=bookDto.price,
             publishDate = bookDto.publish_date,
             description = bookDto.description.toString()
-
         )
     }
 }
