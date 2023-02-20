@@ -1,5 +1,6 @@
 package bookUnmarsheller.bookUnmarsheller.entity
 
+import bookUnmarsheller.bookUnmarsheller.model.Book
 import javax.persistence.*
 @Entity
 @Table(name = "catalog")
@@ -8,7 +9,7 @@ data class Catalog(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    @OneToMany()
+    @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     @JoinColumn(name = "catalog_id")
     val books: List<Book> = emptyList()
 )

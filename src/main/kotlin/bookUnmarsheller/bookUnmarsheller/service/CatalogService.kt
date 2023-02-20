@@ -1,37 +1,43 @@
 package bookUnmarsheller.bookUnmarsheller.service
-import bookUnmarsheller.bookUnmarsheller.BookDto
-import bookUnmarsheller.bookUnmarsheller.BookDataClass
-import bookUnmarsheller.bookUnmarsheller.entity.BookEntity
-import bookUnmarsheller.bookUnmarsheller.repository.CatalogRepository
+
+import bookUnmarsheller.bookUnmarsheller.model.Book
+
+import bookUnmarsheller.bookUnmarsheller.repository.bookRepository
+import bookUnmarsheller.bookUnmarsheller.viewModel.BookDto
+import bookUnmarsheller.bookUnmarsheller.viewModel.CatalogDto
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Service
 import javax.xml.bind.JAXBContext
 
 @Service
-class CatalogService(private val catalogRepository: CatalogRepository) {
-    fun saveAllBooks(xmlFilePath: String) {
-        val catalogDto = unmarshalCatalogFromXmlFile(xmlFilePath)
-        val bookEntities = catalogDto.books.map { toBookEntity(it)}
-        catalogRepository.saveAll(bookEntities)
-    }
-
-    fun unmarshalCatalogFromXmlFile(filePath: String): BookDataClass {
+class CatalogService(val bookRepository: bookRepository) {
+    fun unmarshalCatalogFromXmlFile(filePath: String): CatalogDto {
         val file = ClassPathResource(filePath)
-        val jaxbContext = JAXBContext.newInstance(BookDataClass::class.java)
+        val jaxbContext = JAXBContext.newInstance(CatalogDto::class.java)
         val unmarshaller = jaxbContext.createUnmarshaller()
-        return unmarshaller.unmarshal(file.inputStream) as BookDataClass
+        val mydata: CatalogDto = unmarshaller.unmarshal(file.inputStream) as CatalogDto
+        println(mydata)
+
+        return mydata
     }
 
-    fun toBookEntity(bookDto: BookDto):BookEntity{
-        return BookEntity(
-            id = bookDto.id?.toLong(),
-            author = bookDto.author.orEmpty(),
-            title=bookDto.title.toString(),
-            genre=bookDto.genre.toString(),
-            price=bookDto.price,
-            publishDate = bookDto.publish_date,
-            description = bookDto.description.toString()
+    fun saveAll(books: List<BookDto>) {
+        for (book in books) {
+            val bookEntity = toBookEntity(book)
+            bookRepository.save(bookEntity)
+        }
+    }
 
+    fun toBookEntity(bookDto: BookDto): Book {
+
+        return Book(
+            author = bookDto.author,
+            title = bookDto.title,
+            genre = bookDto.genre,
+            price = bookDto.price,
+            publishDate = bookDto.publishDate,
+            description = bookDto.description
+            //bookDto.author,bookDto.title,bookDto.genre,bookDto.price,bookDto.publish_date,bookDto.description
         )
     }
 }

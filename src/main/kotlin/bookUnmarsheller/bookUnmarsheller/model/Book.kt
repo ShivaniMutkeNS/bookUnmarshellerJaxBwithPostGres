@@ -1,31 +1,32 @@
-package bookUnmarsheller.bookUnmarsheller.entity
+package bookUnmarsheller.bookUnmarsheller.model
+
 import javax.persistence.*
+
 @Entity
 @Table(name = "books")
 data class Book(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-
-    @Column(name="author")
+    @Column(name = "author")
     val author: String,
 
-    @Column(name="title")
+    @Column(name = "title")
     val title: String,
 
-    @Column(name="genre")
+    @Column(name = "genre")
     val genre: String,
 
-    @Column(name="price")
+    @Column(name = "price")
     val price: Double,
 
     @Column(name = "publishDate")
-    val publishDate: String?,
+    val publishDate: String,
 
-    @Column(name="description")
+    @Column(name = "description")
     val description: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "catalog_id")
-    var catalog: Catalog? = null
-)
+
+) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null
+
+}
