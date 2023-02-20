@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VouchersOrder>
+    <senderData>
+        <companyId>123r</companyId>
+        <contact>
+            <contactId>conct1</contactId>
+            <name>contactname</name>
+            <language>languagename</language>
+            <email>emailname</email>
+        </contact>
+    </senderData>
+    <customerOrder>
+        <companyId>123r</companyId>
+        <companyAddress>pune</companyAddress>
+        <orderReference>orderRef</orderReference>
+        <contact>
+            <contactId>conct1</contactId>
+            <name>contactname</name>
+            <language>languagename</language>
+            <email>emailname</email>
+        </contact>
+        <beneficiary>
+            <beneficiaryId>benificialid1</beneficiaryId>
+            <actionCode>actioncode</actionCode>
+            <name>lastname</name>
+            <firstName>firsname</firstName>
+            <language>language</language>
+            <address>
+                <street>streetname</street>
+                <houseNumber>housenumber</houseNumber>
+                <zipCode>zipcode</zipCode>
+                <city>city</city>
+                <country>country</country>
+            </address>
+            <order>
+                <product>productorder</product>
+                <quantity>2</quantity>
+                <value>23</value>
+                <deliveryAddress>delivery address</deliveryAddress>
+                <distributionAddress>distribution address</distributionAddress>
+                <invoiceAddress>invoiceaddress</invoiceAddress>
+            </order>
+        </beneficiary>
+        <customerAddress>
+            <addressId>address id</addressId>
+            <locationName>location name</locationName>
+            <address>
+                <street>streetname</street>
+                <houseNumber>housenumber</houseNumber>
+                <zipCode>zipcode</zipCode>
+                <city>city</city>
+                <country>country</country>
+            </address>
+        </customerAddress>
+    </customerOrder>
+</VouchersOrder>

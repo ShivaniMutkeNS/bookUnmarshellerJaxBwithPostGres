@@ -36,9 +36,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("jakarta.xml.bind:jakarta.xml.bind-api:3.0.1")
 	implementation("org.eclipse.persistence:org.eclipse.persistence.moxy:3.0.2")
+	implementation("org.springframework:spring-oxm")
 }
 
 tasks.withType<KotlinCompile> {
