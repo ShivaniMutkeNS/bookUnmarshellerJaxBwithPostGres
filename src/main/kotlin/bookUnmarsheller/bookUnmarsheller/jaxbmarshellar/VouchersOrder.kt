@@ -8,101 +8,102 @@ import javax.xml.bind.annotation.XmlRootElement
 @XmlRootElement(name = "VouchersOrder")
 @XmlAccessorType(XmlAccessType.FIELD)
 data class VouchersOrder(
-    @XmlElement
-    var senderData: SenderData?=null,
-    @XmlElement
-    var customerOrder: CustomerOrder?=null
+    @field:XmlElement(name = "SenderData")
+    var senderData: SenderData? = null,
+    @field:XmlElement(name = "CustomerOrder")
+    var customerOrder: CustomerOrder? = null,
 )
+
 @XmlAccessorType(XmlAccessType.FIELD)
 data class SenderData(
-    @XmlElement
-    var companyId: String="",
-    @XmlElement
-    var contact: Contact?=null
+    @field:XmlElement(name = "CompanyId")
+    var companyId: String = "",
+    @field:XmlElement(name = "Contact")
+    var contact: Contact? = null,
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class CustomerOrder(
-    @XmlElement
-    var companyId: String="",
-    @XmlElement
-    var companyAddress: String="",
-    @XmlElement
-    var orderReference: String="",
-    @XmlElement
-    var contact: Contact?=null,
-    @XmlElement
-    var beneficiary: Beneficiary?=null,
-    @XmlElement
-    var customerAddress: CustomerAddress?=null
+    @field:XmlElement(name = "CompanyID")
+    var companyId: String = "",
+    @field:XmlElement(name = "CompanyAddress")
+    var companyAddress: String = "",
+    @field:XmlElement(name = "OrderReference")
+    var orderReference: String = "",
+    @field:XmlElement(name = "Contact")
+    var contact: Contact? = null,
+    @field:XmlElement(name = "Beneficiary")
+    var beneficiary: Beneficiary? = null,
+    @field:XmlElement(name = "CustomerAddress")
+    var customerAddress: CustomerAddress? = null,
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class Contact(
-    @XmlElement
-    var contactId: String="",
-    @XmlElement
-    var name: String="",
-    @XmlElement
-    var language: String="",
-    @XmlElement
-    var email: String=""
+    @field:XmlElement(name = "ContactId")
+    var contactId: String = "",
+    @field:XmlElement(name = "Name")
+    var name: String = "",
+    @field:XmlElement(name = "Language")
+    var language: String = "",
+    @field:XmlElement(name = "Email")
+    var email: String = "",
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class Beneficiary(
-    @XmlElement
-    var beneficiaryId: String="",
-    @XmlElement
-    var actionCode: String="",
-    @XmlElement
-    var name: String="",
-    @XmlElement
-    var firstName: String="",
-    @XmlElement
-    var language: String="",
-    @XmlElement
-    var address: Address?=null,
-    @XmlElement
-    var order: Order?=null
+    @field:XmlElement(name = "BeneficiaryId")
+    var beneficiaryId: String = "",
+    @field:XmlElement(name = "ActionCode")
+    var actionCode: String = "",
+    @field:XmlElement(name = "Name")
+    var name: String = "",
+    @field:XmlElement(name = "FirstName")
+    var firstName: String = "",
+    @field:XmlElement(name = "Language")
+    var language: String = "",
+    @field:XmlElement(name = "Address")
+    var address: Address? = null,
+    @field:XmlElement(name = "Order")
+    var order: Order? = null,
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class Address(
-    @XmlElement
-    var street: String="",
-    @XmlElement
-    var houseNumber: String="",
-    @XmlElement
-    var zipCode: String="",
-    @XmlElement
-    var city: String="",
-    @XmlElement
-    var country: String=""
+    @field:XmlElement(name = "Street")
+    var street: String = "",
+    @field:XmlElement(name = "HouseNumber")
+    var houseNumber: String = "",
+    @field:XmlElement(name = "ZipCode")
+    var zipCode: String = "",
+    @field:XmlElement(name = "City")
+    var city: String = "",
+    @field:XmlElement(name = "Country")
+    var country: String = "",
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class Order(
-    @XmlElement
-    var product: String="",
-    @XmlElement
-    var quantity: Int=0,
-    @XmlElement
-    var value: Int=0,
-    @XmlElement
-    var deliveryAddress: String="",
-    @XmlElement
-    var distributionAddress: String="",
-    @XmlElement
-    var invoiceAddress: String=""
+    @field:XmlElement(name = "Product")
+    var product: String = "",
+    @field:XmlElement(name = "Quantity")
+    var quantity: Int = 0,
+    @field:XmlElement(name = "Value")
+    var value: Int = 0,
+    @field:XmlElement(name = "DeliveryAddress")
+    var deliveryAddress: String = "",
+    @field:XmlElement(name = "DistributionAddress")
+    var distributionAddress: String = "",
+    @field:XmlElement(name = "InvoiceAddress")
+    var invoiceAddress: String = "",
 )
 
 @XmlAccessorType(XmlAccessType.FIELD)
 data class CustomerAddress(
-    @XmlElement
-    var addressId: String="",
-    @XmlElement
-    var locationName: String="",
-    @XmlElement
-    var address: Address?=null
+    @field:XmlElement(name = "AddressId")
+    var addressId: String = "",
+    @field:XmlElement(name = "LocationName")
+    var locationName: String = "",
+    @field:XmlElement(name = "Address")
+    var address: Address? = null,
 )
